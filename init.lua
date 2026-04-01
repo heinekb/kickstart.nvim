@@ -139,6 +139,12 @@ vim.o.timeoutlen = 300
 vim.o.splitright = true
 vim.o.splitbelow = true
 
+-- Changes tab size and changes it to be spaces
+vim.opt.tabstop = 2 -- A hard tab character will display as 4 spaces
+vim.opt.shiftwidth = 2 -- Indentation will be 4 spaces wide
+vim.opt.softtabstop = 2 -- Number of spaces a <Tab> counts for in Insert mode
+vim.opt.expandtab = true -- Use spaces instead of tab characters
+
 -- Sets how neovim will display certain whitespace characters in the editor.
 --  See `:help 'list'`
 --  and `:help 'listchars'`
@@ -504,6 +510,7 @@ require('lazy').setup({
     'neovim/nvim-lspconfig',
     dependencies = {
       -- Automatically install LSPs and related tools to stdpath for Neovim
+
       -- Mason must be loaded before its dependents so we need to set it up here.
       -- NOTE: `opts = {}` is the same as calling `require('mason').setup({})`
       {
